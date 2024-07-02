@@ -1,7 +1,9 @@
-export default function Disc({ image, label }) {
+import React from "react";
+
+export default function Disc({ image }) {
     return (
         <div className="disc" style={{ backgroundImage: `url(${image})` }}>
-            <h3>{label}</h3>
+            {}
         </div>
     );
 }
