@@ -1,12 +1,12 @@
 import React from "react";
 import Tower from "./Tower";
 
-export default function Game() {
+export default function Game({ towers }) {
     return (
         <main>
-            <Tower />
-            <Tower empty />
-            <Tower empty />
+        {Object.keys(towers).map(id => (
+            <Tower key={id} id={id} discs={towers[id]} />
+        ))}
         </main>
     );
 }

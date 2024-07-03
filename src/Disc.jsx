@@ -1,9 +1,28 @@
 import React from "react";
+import { useDraggable } from "@dnd-kit/core";
+import Disc1 from "./assets/1Cyan.svg";
+import Disc2 from "./assets/2Blue.svg";
+import Disc3 from "./assets/3Green.svg";
+import Disc4 from "./assets/4Yellow.svg";
+import Disc5 from "./assets/5Red.svg";
 
-export default function Disc({ image }) {
+const discImages = [Disc1, Disc2, Disc3, Disc4, Disc5];
+
+export default function Disc({ id }) {
+    const { attributes, listeners, setNodeRef, transform } = useDraggable({
+        id: id,
+    });
+
+    const discIndex = parseInt(id.split("-")[1], 10);
+    const image = discImages[discIndex];
+
+    const style = transform ? {
+        transform: `translate3d(${transform.x}px, ${transform.y}px, 0)`,
+        backgroundImage: `url(${image})`,
+    } : { backgroundImage: `url(${image})` };
+
     return (
-        <div className="disc" style={{ backgroundImage: `url(${image})` }}>
-            {}
+        <div className="disc" ref={setNodeRef} style={style} {...listeners} {...attributes}>
         </div>
     );
 }
