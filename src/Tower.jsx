@@ -15,8 +15,8 @@ export default function Tower({ id, discs }) {
 
     return (
         <section className="tower" ref={setNodeRef} style={style}>
-            {discs.map(discId => (
-                <Disc key={discId} id={discId} />
+            {discs.map((discId, index) => (
+                <Disc key={discId} id={discId} isDraggable={index === 0} />
             ))}
         </section>
     );
