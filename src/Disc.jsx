@@ -7,22 +7,30 @@ import Disc4 from "./assets/4Yellow.png";
 import Disc5 from "./assets/5Red.png";
 
 const discImages = [Disc1, Disc2, Disc3, Disc4, Disc5];
+const discWidths = ["200px", "220px", "240px", "260px", "280px"];
 
 export default function Disc({ id }) {
-    const { attributes, listeners, setNodeRef, transform } = useDraggable({
-        id: id,
-    });
+  const { attributes, listeners, setNodeRef, transform } = useDraggable({
+    id: id,
+  });
 
-    const discIndex = parseInt(id.split("-")[1], 10);
-    const image = discImages[discIndex];
+  const discIndex = parseInt(id.split("-")[1], 10);
+  const image = discImages[discIndex];
 
-    const style = transform ? {
+  const style = transform
+    ? {
         transform: `translate3d(${transform.x}px, ${transform.y}px, 0)`,
         backgroundImage: `url(${image})`,
-    } : { backgroundImage: `url(${image})` };
+        width: discWidths[discIndex],
+        height: "30px", // Ensure all discs have the same height
+      }
+    : {
+        backgroundImage: `url(${image})`,
+        width: discWidths[discIndex],
+        height: "30px", // Ensure all discs have the same height
+      };
 
-    return (
-        <div className="disc" ref={setNodeRef} style={style} {...listeners} {...attributes}>
-        </div>
-    );
+  return (
+    <div className="disc" ref={setNodeRef} style={style} {...listeners} {...attributes}></div>
+  );
 }
