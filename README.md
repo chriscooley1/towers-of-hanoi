@@ -28,6 +28,7 @@ cd towers-of-hanoi
 3. Install dependencies:
 
 npm install
+npm install @dnd-kit/core
 
 4. Start the development server:
 
