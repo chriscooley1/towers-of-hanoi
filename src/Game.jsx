@@ -3,17 +3,27 @@ import Tower from "./Tower";
 import { DndContext } from "@dnd-kit/core";
 
 export default function Game({ towers, setTowers }) {
+
+    function getDiscSize(discId) {
+        return parseInt(discId.split("-")[1], 10);
+    }
+
     function handleDragEnd(event) {
         const { active, over } = event;
         if (over && active.id !== over.id) {
             setTowers(prevTowers => {
                 const newTowers = { ...prevTowers };
-                // Find the source tower
+
                 const sourceTower = Object.keys(newTowers).find(key => newTowers[key].includes(active.id));
-                // Remove the disc from the source tower
-                newTowers[sourceTower] = newTowers[sourceTower].filter(id => id !== active.id);
-                // Add the disc to the target tower
-                newTowers[over.id].unshift(active.id);
+                const targetTower = newTowers[over.id];
+
+                if (targetTower.length === 0 || getDiscSize(active.id) < getDiscSize(targetTower[0])) {
+                    newTowers[sourceTower] = newTowers[sourceTower].filter(id => id !== active.id);
+                    newTowers[over.id].unshift(active.id);
+                } else {
+                    console.log("Invalid move: larger disc cannot be placed on top of a smaller disc.");
+                }
+
                 return newTowers;
             });
         }
