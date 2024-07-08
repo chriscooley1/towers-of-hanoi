@@ -3,8 +3,9 @@ import { useDroppable } from "@dnd-kit/core";
 import Disc from "./Disc";
 import Flag from "./Flag";
 import TowerPng from "./assets/Tower.png";
+import ConfettiExplosion from 'react-confetti-explosion';
 
-export default function Tower({ id, discs, isCompleted }) {
+export default function Tower({ id, discs, isCompleted, showConfetti }) {
     const { isOver, setNodeRef } = useDroppable({
         id: id,
     });
@@ -16,7 +17,8 @@ export default function Tower({ id, discs, isCompleted }) {
 
     return (
         <section className="tower" ref={setNodeRef} style={style}>
-            {isCompleted && <Flag isCompleted={isCompleted} />} {/* Pass isCompleted prop */}
+            {id === "C" && isCompleted && <Flag />} {/* Show flag only on Tower C if completed */}
+            {showConfetti && <ConfettiExplosion />} {/* Show confetti if the tower is completed */}
             {discs.map((discId, index) => (
                 <Disc key={discId} id={discId} isDraggable={index === 0} />
             ))}

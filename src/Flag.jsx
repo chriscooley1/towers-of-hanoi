@@ -8,7 +8,7 @@ export default function Flag({ isCompleted }) {
     useEffect(() => {
         if (isCompleted) {
             setIsExploding(true);
-            setTimeout(() => setIsExploding(false), 5000); // Stop explosion after 5 seconds
+            setTimeout(() => setIsExploding(false), 5000);
         }
     }, [isCompleted]);
 
