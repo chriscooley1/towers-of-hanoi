@@ -23,7 +23,8 @@ main {
   margin-top: 3rem;
   margin-bottom: 5rem;
   background-position: bottom; 
-  padding-bottom: 60px;
+  padding-bottom: 59px;
+  border-radius: 50px;
 }
 
 .disc {
@@ -32,6 +33,7 @@ main {
   align-items: center;
   justify-content: center;
   position: relative;
+  border-radius: 50px;
 }
 
 .discCyan {
@@ -52,4 +54,15 @@ main {
 
 .discRed {
   width: 350px;
+}
+
+.flag {
+  position: relative;
+  top: 0;
+  left: 68px;
+  width: 75px;
+}
+
+.flag img {
+  width: 100%;
 }

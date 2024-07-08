@@ -29,6 +29,7 @@ cd towers-of-hanoi
 
 npm install
 npm install @dnd-kit/core
+npm install react-confetti-explosion
 
 4. Start the development server:
 
