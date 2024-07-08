@@ -38,3 +38,28 @@ main {
   margin: 0 auto;
   z-index: 2;
 }
+
+.discCyan {
+  width: 150px;
+  align-items: center;
+}
+
+.discBlue {
+  width: 200px;
+  align-items: center;
+}
+
+.discGreen {
+  width: 250px;
+  align-items: center;
+}
+
+.discYellow {
+  width: 300px;
+  align-items: center;
+}
+
+.discRed {
+  width: 350px;
+  align-items: center;
+}
