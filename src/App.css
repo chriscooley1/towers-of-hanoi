@@ -58,7 +58,7 @@ main {
 
 .flag {
   position: relative;
-  top: 0;
+  bottom: 10px;
   left: 68px;
   width: 75px;
 }

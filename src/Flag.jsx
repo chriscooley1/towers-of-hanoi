@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import FlagImg from "./assets/Flag.png";
 import ConfettiExplosion from "react-confetti-explosion";
+import bigExplodeProps from './confettiProps';
 
 export default function Flag({ isCompleted }) {
     const [isExploding, setIsExploding] = useState(false);
@@ -23,11 +24,3 @@ export default function Flag({ isCompleted }) {
         </div>
     );
 }
-
-const bigExplodeProps = {
-    force: 0.6,
-    duration: 5000,
-    particleCount: 200,
-    floorHeight: 1600,
-    floorWidth: 1600
-};

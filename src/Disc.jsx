@@ -12,7 +12,7 @@ const discClasses = ["discCyan", "discBlue", "discGreen", "discYellow", "discRed
 export default function Disc({ id, isDraggable }) {
     const { attributes, listeners, setNodeRef, transform } = useDraggable({
         id: id,
-        disabled: !isDraggable, // Disable draggable if not the top disc
+        disabled: !isDraggable,
     });
 
     const discIndex = parseInt(id.split("-")[1], 10);
